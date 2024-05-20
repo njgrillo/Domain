@@ -54,7 +54,7 @@ public class ProposeTrade : Entity
         Memorabilia.RemoveAll(item => proposeTradeMemorabiliaIds.Contains(item.Id));
     }   
 
-    public void SetStatus(Constant.ProposeTradeStatusType proposeTradeStatusType)
+    public void SetStatus(ProposeTradeStatusTypes proposeTradeStatusType)
     {
         ProposeTradeStatusTypeId = proposeTradeStatusType.Id;
     }

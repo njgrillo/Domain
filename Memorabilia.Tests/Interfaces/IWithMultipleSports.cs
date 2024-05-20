@@ -2,5 +2,5 @@
 
 public interface IWithMultipleSports
 {
-    Entity.Memorabilia SetSports(params int[] sportIds);
+    Domain.Entities.Memorabilia SetSports(params int[] sportIds);
 }

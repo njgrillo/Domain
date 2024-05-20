@@ -12,11 +12,11 @@ public class ItemTypeSize : Entity
 
     public int ItemTypeId { get; private set; }
 
-    public string ItemTypeName => Constants.ItemType.Find(ItemTypeId)?.Name;
+    public string ItemTypeName => ItemTypes.Find(ItemTypeId)?.Name;
 
     public int SizeId { get; private set; }
 
-    public string SizeName => Constants.Size.Find(SizeId)?.Name;
+    public string SizeName => Constants.Sizes.Find(SizeId)?.Name;
 
     public void Set(int sizeId)
     {

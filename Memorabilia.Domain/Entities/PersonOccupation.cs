@@ -13,7 +13,7 @@ public class PersonOccupation : Entity
 
     public int OccupationId { get; private set; }
 
-    public string OccupationName => Constants.Occupation.Find(OccupationId)?.Name;
+    public string OccupationName => Occupations.Find(OccupationId)?.Name;
 
     public int OccupationTypeId { get; private set; }
 
@@ -22,7 +22,7 @@ public class PersonOccupation : Entity
     public int PersonId { get; private set; }
 
     public override string ToString()
-        => $"{OccupationName} {Constants.OccupationType.Find(OccupationTypeId)?.Name}";
+        => $"{OccupationName} {Constants.OccupationTypes.Find(OccupationTypeId)?.Name}";
 
     public void Set(int occupationId, int occupationTypeId)
     {

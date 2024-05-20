@@ -22,10 +22,10 @@ public class User : Entity
         Username = username;
         CreateDate = DateTime.UtcNow;
 
-        Roles = new()
-        {
-            new UserRole(Constant.Role.NonSubscriber.Id, Id)
-        };
+        Roles =
+        [
+            new UserRole(Constants.Roles.NonSubscriber.Id, Id)
+        ];
     }
 
     public virtual List<ForumTopicUserBookmark> BookmarkedForumTopics { get; private set; }
@@ -62,8 +62,8 @@ public class User : Entity
 
     public void SetDashboardItems(params int[] dashboardItemsIds)
     {
-        if (dashboardItemsIds == null || !dashboardItemsIds.Any())
-            DashboardItems = new List<UserDashboard>();
+        if (dashboardItemsIds == null || dashboardItemsIds.Length == 0)
+            DashboardItems = [];
 
         DashboardItems.RemoveAll(dashboardItem => !dashboardItemsIds.Contains(dashboardItem.DashboardItemId));
         DashboardItems.AddRange(dashboardItemsIds.Where(dashboardItemsId => !DashboardItems.Select(dashboardItemId => dashboardItemId.DashboardItemId)
@@ -74,14 +74,14 @@ public class User : Entity
     public void SetPaymentOption(int userPaymentOptionId,
                                  int paymentOptionId, 
                                  string paymentHandle,
-                                 PaymentOptionType paymentOptionType)
+                                 PaymentOptionTypes paymentOptionType)
     {
         if (PaymentOptions == null)
         {
-            PaymentOptions = new List<UserPaymentOption>
-            {
-                new UserPaymentOption(Id, paymentOptionId, paymentHandle, paymentOptionType)
-            };
+            PaymentOptions =
+            [
+                new(Id, paymentOptionId, paymentHandle, paymentOptionType)
+            ];
 
             return;
         }
@@ -126,10 +126,10 @@ public class User : Entity
     {
         if (SocialMedias == null)
         {
-            SocialMedias = new List<UserSocialMedia>
-            {
-                new UserSocialMedia(Id, socialMediaTypeId, handle)
-            };
+            SocialMedias =
+            [
+                new(Id, socialMediaTypeId, handle)
+            ];
 
             return;
         }
@@ -173,10 +173,10 @@ public class User : Entity
     {
         if (Roles == null)
         {
-            Roles = new()
-            {
+            Roles =
+            [
                 new UserRole(roleId, Id)
-            };
+            ];
 
             return;
         }

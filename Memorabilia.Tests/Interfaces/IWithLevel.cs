@@ -2,5 +2,5 @@
 
 public interface IWithLevel
 {
-    Entity.Memorabilia SetItemLevel(Constant.LevelType levelType);
+    Domain.Entities.Memorabilia SetItemLevel(LevelTypes levelType);
 }

@@ -182,8 +182,8 @@ public class Autograph : Entity
                                     new AutographImage(Id,
                                                        fileName,
                                                        fileName == primaryImageFileName
-                                                             ? Constant.ImageType.Primary.Id
-                                                             : Constant.ImageType.Secondary.Id,
+                                                             ? ImageTypes.Primary.Id
+                                                             : ImageTypes.Secondary.Id,
                                                        DateTime.UtcNow)).ToList();
     }
 

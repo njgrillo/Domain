@@ -1,8 +1,9 @@
 ﻿namespace Memorabilia.Tests.Entities.MemorabiliaPartials;
 
-public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople, IWithMultipleTeams, IWithSingleSport
+public class BammerTests 
+    : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople, IWithMultipleTeams, IWithSingleSport
 {
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBammer(bammerTypeId: null,
                               brandId: DefaultBrandId,
@@ -13,9 +14,9 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
                               year: null);
     }
 
-    public Entity.Memorabilia SetItemBrand(Constant.Brand brand)
+    public Domain.Entities.Memorabilia SetItemBrand(Brands brand)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         memorabilia.SetBammer(bammerTypeId: null,
                               brandId: brand.Id,
@@ -28,9 +29,9 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetPerson(params int[] personIds)
+    public Domain.Entities.Memorabilia SetPerson(params int[] personIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         memorabilia.SetBammer(bammerTypeId: null,
                               brandId: DefaultBrandId,
@@ -43,9 +44,9 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetSport(int sportId)
+    public Domain.Entities.Memorabilia SetSport(int sportId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         memorabilia.SetBammer(bammerTypeId: null,
                               brandId: DefaultBrandId,
@@ -58,9 +59,9 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeams(params int[] teamIds)
+    public Domain.Entities.Memorabilia SetTeams(params int[] teamIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         memorabilia.SetBammer(bammerTypeId: null,
                               brandId: DefaultBrandId,
@@ -77,7 +78,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void BrandShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemBrand(Constant.Brand.Other);
+        Domain.Entities.Memorabilia memorabilia = SetItemBrand(Brands.Other);
 
         //assert
         Assert.NotNull(memorabilia.Brand);
@@ -87,7 +88,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void BammerShouldBeNullWhenBammerTypeIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bammer);
 
         //assert
         Assert.Null(memorabilia.Bammer);
@@ -97,11 +98,11 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void BammerShouldBeNullWhenBrandIsNotSalvinoAndBammerTypeIsNotNull()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         //act
-        memorabilia.SetBammer(bammerTypeId: Constant.BammerType.Bammer.Id,
-                              brandId: Constant.Brand.Salvino.Id,
+        memorabilia.SetBammer(bammerTypeId: BammerTypes.Bammer.Id,
+                              brandId: Brands.Salvino.Id,
                               inPackage: false,
                               personIds: null,
                               sportId: null,
@@ -116,11 +117,11 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void BammerShouldNotBeNullWhenBrandIsSalvinoAndBammerTypeIsNotNull()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         //act
-        memorabilia.SetBammer(bammerTypeId: Constant.BammerType.Bammer.Id,
-                              brandId: Constant.Brand.Salvino.Id,
+        memorabilia.SetBammer(bammerTypeId: BammerTypes.Bammer.Id,
+                              brandId: Brands.Salvino.Id,
                               inPackage: false,
                               personIds: null,
                               sportId: null,
@@ -135,7 +136,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void GameShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -145,7 +146,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void LevelTypeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         //assert
         Assert.Null(memorabilia.LevelType);
@@ -155,7 +156,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bammer);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -166,7 +167,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange
-        Entity.Memorabilia memorabilia = SetPerson(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetPerson(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -178,7 +179,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void PeopleShouldContainMoreThanOneItemWhenPersonIdsIsNotNullAndMoreThanOnePersonIdIsSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -190,7 +191,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void SizeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bammer);
 
         //assert
         Assert.Null(memorabilia.Size);
@@ -200,7 +201,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void SportsShouldNotBeNullAndNotEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetSport(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetSport(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -212,7 +213,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bammer);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bammer);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -223,7 +224,7 @@ public class BammerTests : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Teams);

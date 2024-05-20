@@ -3,9 +3,9 @@
 public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithSinglePerson, IWithSingleTeam, IWithSize
 {
     private readonly int _sportId
-        = Constant.Sport.Baseball.Id;
+        = Sports.Baseball.Id;
 
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBat(batTypeId: null,
                            brandId: DefaultBrandId,
@@ -19,9 +19,9 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
                            teamId: null);
     }
 
-    public Entity.Memorabilia SetItemBrand(Constant.Brand brand)
+    public Domain.Entities.Memorabilia SetItemBrand(Brands brand)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bat);
 
         memorabilia.SetBat(batTypeId: null,
                            brandId: brand.Id,
@@ -37,9 +37,9 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemGameStyle(Constant.GameStyleType gameStyleType)
+    public Domain.Entities.Memorabilia SetItemGameStyle(GameStyleTypes gameStyleType)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bat);
 
         memorabilia.SetBat(batTypeId: null,
                            brandId: DefaultBrandId,
@@ -55,9 +55,9 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemSize(Constant.Size size)
+    public Domain.Entities.Memorabilia SetItemSize(Sizes size)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bat);
 
         memorabilia.SetBat(batTypeId: null,
                            brandId: DefaultBrandId,
@@ -73,9 +73,9 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetPerson(int personId)
+    public Domain.Entities.Memorabilia SetPerson(int personId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bat);
 
         memorabilia.SetBat(batTypeId: null,
                            brandId: DefaultBrandId,
@@ -91,9 +91,9 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeam(int teamId)
+    public Domain.Entities.Memorabilia SetTeam(int teamId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bat);
 
         memorabilia.SetBat(batTypeId: null,
                            brandId: DefaultBrandId,
@@ -113,7 +113,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void BrandShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemBrand(Constant.Brand.LouisvilleSlugger);
+        Domain.Entities.Memorabilia memorabilia = SetItemBrand(Brands.LouisvilleSlugger);
 
         //assert
         Assert.NotNull(memorabilia.Brand);
@@ -123,7 +123,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void BatShouldBeNullWhenBatTypeIsNullAndColorIsNullAndLengthIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.Null(memorabilia.Bat);
@@ -133,7 +133,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void GameShouldBeNullWhenGameStyleTypeIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -143,7 +143,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void GameShouldNotBeNullWhenGameStyleTypeIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemGameStyle(Constant.GameStyleType.None);
+        Domain.Entities.Memorabilia memorabilia = SetItemGameStyle(GameStyleTypes.None);
 
         //assert
         Assert.NotNull(memorabilia.Game);
@@ -153,7 +153,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void LevelTypeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.Null(memorabilia.LevelType);
@@ -163,7 +163,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -174,7 +174,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetPerson(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -186,7 +186,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void SizeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemSize(Constant.Size.Full);
+        Domain.Entities.Memorabilia memorabilia = SetItemSize(Sizes.Full);
 
         //assert
         Assert.NotNull(memorabilia.Size);
@@ -196,7 +196,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void SportsShouldNotBeNullAndNotEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -208,7 +208,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bat);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bat);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -219,7 +219,7 @@ public class BatTests : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithS
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetTeam(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetTeam(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.Teams);

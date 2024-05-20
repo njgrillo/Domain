@@ -53,7 +53,7 @@ public class Offer : Entity
         OfferDate = offerDate;
     }
 
-    public void SetStatus(Constant.OfferStatusType offerStatusType)
+    public void SetStatus(OfferStatusTypes offerStatusType)
     {
         OfferStatusTypeId = offerStatusType.Id;
     }

@@ -7,9 +7,9 @@ public class UserPaymentOption : Entity
     public UserPaymentOption(int userId, 
                              int paymentOptionId, 
                              string paymentHandle,
-                             PaymentOptionType paymentOptionType)
+                             PaymentOptionTypes paymentOptionType)
     {
-        IsPrimary = paymentOptionType == PaymentOptionType.Primary;
+        IsPrimary = paymentOptionType == PaymentOptionTypes.Primary;
         PaymentHandle = paymentHandle;
         PaymentOptionId = paymentOptionId;
         UserId = userId;
@@ -23,9 +23,9 @@ public class UserPaymentOption : Entity
 
     public int UserId { get; private set; }
 
-    public void Set(string paymentHandle, PaymentOptionType paymentOptionType)
+    public void Set(string paymentHandle, PaymentOptionTypes paymentOptionType)
     {
-        IsPrimary = paymentOptionType == PaymentOptionType.Primary;
+        IsPrimary = paymentOptionType == PaymentOptionTypes.Primary;
         PaymentHandle = paymentHandle;  
     }
 }

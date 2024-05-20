@@ -15,17 +15,17 @@ public class Pewter : Entity
 
     public int FranchiseId { get; private set; }
 
-    public string FranchiseName => Constants.Franchise.Find(FranchiseId)?.Name;
+    public string FranchiseName => Franchises.Find(FranchiseId)?.Name;
 
     public string ImageFileName { get; private set; }
 
     public int? ImageTypeId { get; private set; }
 
-    public string ImageTypeName => Constants.ImageType.Find(ImageTypeId ?? 0)?.Name;
+    public string ImageTypeName => Constants.ImageTypes.Find(ImageTypeId ?? 0)?.Name;
 
     public int SizeId { get; private set; }
 
-    public string SizeName => Constants.Size.Find(SizeId)?.Name;
+    public string SizeName => Constants.Sizes.Find(SizeId)?.Name;
 
     public virtual Team Team { get; private set; }
 

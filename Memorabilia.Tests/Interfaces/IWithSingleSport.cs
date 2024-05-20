@@ -2,5 +2,5 @@
 
 public interface IWithSingleSport
 {
-    Entity.Memorabilia SetSport(int sportId);
+    Domain.Entities.Memorabilia SetSport(int sportId);
 }

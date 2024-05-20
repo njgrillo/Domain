@@ -2,7 +2,7 @@
 
 public abstract class MemorabiliaTests : Tests
 {
-    protected static Entity.Memorabilia GetMemorabilia(Constant.ItemType itemType)
+    protected static Domain.Entities.Memorabilia GetMemorabilia(ItemTypes itemType)
         => new(acquiredDate: null,
                acquiredWithAutograph: false,
                acquisitionTypeId: GetRandomNumber(),

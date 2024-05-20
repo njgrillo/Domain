@@ -2,5 +2,5 @@
 
 public interface IWithGameStyle
 {
-    Entity.Memorabilia SetItemGameStyle(Constant.GameStyleType gameStyleType);
+    Domain.Entities.Memorabilia SetItemGameStyle(GameStyleTypes gameStyleType);
 }

@@ -2,5 +2,5 @@
 
 public interface IWithSinglePerson
 {
-    Entity.Memorabilia SetPerson(int personId);
+    Domain.Entities.Memorabilia SetPerson(int personId);
 }

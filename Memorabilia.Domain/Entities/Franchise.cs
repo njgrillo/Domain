@@ -31,7 +31,7 @@ public class Franchise : Entity
 
     public int SportLeagueLevelId { get; private set; }
 
-    public string SportLeagueLevelName => Constants.SportLeagueLevel.Find(SportLeagueLevelId)?.Name;
+    public string SportLeagueLevelName => Constants.SportLeagueLevels.Find(SportLeagueLevelId)?.Name;
 
     public void Set(string name, string location, int foundYear)
     {

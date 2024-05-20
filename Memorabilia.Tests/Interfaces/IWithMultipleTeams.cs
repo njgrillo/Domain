@@ -2,5 +2,5 @@
 
 public interface IWithMultipleTeams
 {
-    Entity.Memorabilia SetTeams(params int[] teamIds);
+    Domain.Entities.Memorabilia SetTeams(params int[] teamIds);
 }

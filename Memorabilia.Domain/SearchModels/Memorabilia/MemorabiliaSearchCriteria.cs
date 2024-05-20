@@ -5,17 +5,17 @@ public class MemorabiliaSearchCriteria : SearchCriteria
     public AutographSearchCriteria AutographSearchCriteria { get; set; } 
         = new();
 
-    public Constant.BuyNowFilter BuyNowFilter { get; set; }
-        = Constant.BuyNowFilter.None;
+    public BuyNowFilters BuyNowFilter { get; set; }
+        = BuyNowFilters.None;
 
     public string BuyNowFilterName
         => BuyNowFilter.Name;
 
-    public IEnumerable<int> BrandIds { get; set; } 
-        = Enumerable.Empty<int>();    
+    public IEnumerable<int> BrandIds { get; set; }
+        = [];
 
-    public IEnumerable<int> GameStyleTypeIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> GameStyleTypeIds { get; set; }
+        = [];
 
     public bool IncludeMyMemorablia { get; set; }
 
@@ -23,32 +23,32 @@ public class MemorabiliaSearchCriteria : SearchCriteria
 
     public bool IncludeTraded { get; set; }
 
-    public IEnumerable<int> ItemTypeIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> ItemTypeIds { get; set; }
+        = [];
 
-    public IEnumerable<int> LevelTypeIds { get; set; } 
-        = Enumerable.Empty<int>();   
-    
-    public Constant.MakeOfferFilter MakeOfferFilter { get; set; }
-        = Constant.MakeOfferFilter.None;
+    public IEnumerable<int> LevelTypeIds { get; set; }
+        = [];
+
+    public MakeOfferFilters MakeOfferFilter { get; set; }
+        = MakeOfferFilters.None;
 
     public string MakeOfferFilterName
         => MakeOfferFilter.Name;
 
     public IEnumerable<int> PrivacyTypeIds { get; set; } 
-        = Enumerable.Empty<int>();
+        = [];
 
-    public Constant.SaleFilter SaleFilter { get; set; }
-        = Constant.SaleFilter.None;
+    public SaleFilters SaleFilter { get; set; }
+        = SaleFilters.None;
 
     public string SaleFilterName
         => SaleFilter.Name;
 
     public IEnumerable<int> SizeIds { get; set; } 
-        = Enumerable.Empty<int>();
+        = [];
 
-    public Constant.TradeFilter TradeFilter { get; set; }
-        = Constant.TradeFilter.None;
+    public TradeFilters TradeFilter { get; set; }
+        = TradeFilters.None;
 
     public string TradeFilterName
         => TradeFilter.Name;

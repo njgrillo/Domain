@@ -1,4 +1,6 @@
-﻿namespace Memorabilia.Domain.Entities;
+﻿using Memorabilia.Domain.Interfaces;
+
+namespace Memorabilia.Domain.Entities;
 
 public class Person : Entity, IWithName
 {
@@ -489,7 +491,7 @@ public class Person : Entity, IWithName
         occupation.Set(occupationId, occupationTypeId);
     }
 
-    public void SetPosition(int positionId, PositionType positionType)
+    public void SetPosition(int positionId, PositionTypes positionType)
     {
         var position = Positions.SingleOrDefault(p => p.PositionId == positionId);
 

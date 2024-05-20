@@ -4,11 +4,11 @@ public class PersonPosition : Entity
 {
     public PersonPosition() { }
 
-    public PersonPosition(int personId, int positionId, PositionType positionType)
+    public PersonPosition(int personId, int positionId, PositionTypes positionType)
     {
         PersonId = personId;
         PositionId = positionId;
-        IsPrimary = positionType == PositionType.Primary;    
+        IsPrimary = positionType == PositionTypes.Primary;    
     }
 
     public bool IsPrimary { get; private set; }
@@ -22,9 +22,9 @@ public class PersonPosition : Entity
     public override string ToString()
         => $"{Position?.Name} {(IsPrimary ? "Primary" : "Secondary")}";
 
-    public void Set(int positionId, PositionType positionType)
+    public void Set(int positionId, PositionTypes positionType)
     {
         PositionId = positionId;
-        IsPrimary = positionType == PositionType.Primary;
+        IsPrimary = positionType == PositionTypes.Primary;
     }    
 }

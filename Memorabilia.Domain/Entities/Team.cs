@@ -1,4 +1,6 @@
-﻿namespace Memorabilia.Domain.Entities;
+﻿using Memorabilia.Domain.Interfaces;
+
+namespace Memorabilia.Domain.Entities;
 
 public class Team : Entity, IWithName
 {
@@ -34,7 +36,7 @@ public class Team : Entity, IWithName
         = [];
 
     public string DisplayName => Franchise != null
-        ? $"{Constant.AdminDomainItem.Franchises.Item}: {Franchise.FullName}, {Constant.AdminDomainItem.Teams.Item}: {Location} {Name} ({BeginYear} - {(EndYear.HasValue ? EndYear : "current")})"
+        ? $"{AdminDomainItems.Franchises.Item}: {Franchise.FullName}, {AdminDomainItems.Teams.Item}: {Location} {Name} ({BeginYear} - {(EndYear.HasValue ? EndYear : "current")})"
         : string.Empty;
 
     public virtual List<TeamDivision> Divisions { get; private set; } 

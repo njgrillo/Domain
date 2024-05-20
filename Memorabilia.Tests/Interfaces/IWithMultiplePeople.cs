@@ -2,5 +2,5 @@
 
 public interface IWithMultiplePeople
 {
-    Entity.Memorabilia SetPerson(params int[] personIds);
+    Domain.Entities.Memorabilia SetPerson(params int[] personIds);
 }

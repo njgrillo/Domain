@@ -2,7 +2,7 @@
 
 public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipleSports, IWithMultipleTeams
 {
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBook(edition: string.Empty,
                             hardCover: false,
@@ -13,9 +13,9 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
                             title: string.Empty);
     }
 
-    public Entity.Memorabilia SetPerson(params int[] personIds)
+    public Domain.Entities.Memorabilia SetPerson(params int[] personIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         memorabilia.SetBook(edition: string.Empty,
                             hardCover: false,
@@ -28,9 +28,9 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetSports(params int[] sportIds)
+    public Domain.Entities.Memorabilia SetSports(params int[] sportIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         memorabilia.SetBook(edition: string.Empty,
                             hardCover: false,
@@ -43,9 +43,9 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeams(params int[] teamIds)
+    public Domain.Entities.Memorabilia SetTeams(params int[] teamIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         memorabilia.SetBook(edition: string.Empty,
                             hardCover: false,
@@ -62,7 +62,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void BrandShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         //assert
         Assert.Null(memorabilia.Brand);
@@ -72,7 +72,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void GameShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -82,7 +82,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void LevelTypeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         //assert
         Assert.Null(memorabilia.LevelType);
@@ -92,7 +92,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Book);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -103,7 +103,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -115,7 +115,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void SizeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Book);
 
         //assert
         Assert.Null(memorabilia.Size);
@@ -125,7 +125,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void SportsShouldNotBeNullAndEmptyWhenNoSportsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Book);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -136,7 +136,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void SportsShouldNotBeNullAndNotEmptyWhenSportsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetSports([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetSports([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -148,7 +148,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Book);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Book);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -159,7 +159,7 @@ public class BookTests : MemorabiliaItemTests, IWithMultiplePeople, IWithMultipl
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Teams);

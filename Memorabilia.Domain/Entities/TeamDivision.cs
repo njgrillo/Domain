@@ -16,7 +16,7 @@ public class TeamDivision : Entity
 
     public int DivisionId { get; set; }
 
-    public string DivisionName => Constants.Division.Find(DivisionId)?.Name;
+    public string DivisionName => Constants.Divisions.Find(DivisionId)?.Name;
 
     public int? EndYear { get; set; }
 

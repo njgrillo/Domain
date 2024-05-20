@@ -3,7 +3,7 @@
 public class CanvasTests 
     : MemorabiliaItemTests, IWithBrand, IWithMultiplePeople, IWithMultipleSports, IWithMultipleTeams, IWithSize
 {
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetCanvas(brandId: DefaultBrandId,
                               matted: false,
@@ -15,9 +15,9 @@ public class CanvasTests
                               teamIds: null);
     }
 
-    public Entity.Memorabilia SetItemBrand(Constant.Brand brand)
+    public Domain.Entities.Memorabilia SetItemBrand(Brands brand)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         memorabilia.SetCanvas(brandId: brand.Id,
                               matted: false,
@@ -31,9 +31,9 @@ public class CanvasTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemSize(Constant.Size size)
+    public Domain.Entities.Memorabilia SetItemSize(Sizes size)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         memorabilia.SetCanvas(brandId: DefaultBrandId,
                               matted: false,
@@ -47,9 +47,9 @@ public class CanvasTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetPerson(params int[] personIds)
+    public Domain.Entities.Memorabilia SetPerson(params int[] personIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         memorabilia.SetCanvas(brandId: DefaultBrandId,
                               matted: false,
@@ -63,9 +63,9 @@ public class CanvasTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetSports(params int[] sportIds)
+    public Domain.Entities.Memorabilia SetSports(params int[] sportIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         memorabilia.SetCanvas(brandId: DefaultBrandId,
                               matted: false,
@@ -79,9 +79,9 @@ public class CanvasTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeams(params int[] teamIds)
+    public Domain.Entities.Memorabilia SetTeams(params int[] teamIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         memorabilia.SetCanvas(brandId: DefaultBrandId,
                               matted: false,
@@ -99,7 +99,7 @@ public class CanvasTests
     public void BrandShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemBrand(Constant.Brand.Photofile);
+        Domain.Entities.Memorabilia memorabilia = SetItemBrand(Brands.Photofile);
 
         //assert
         Assert.NotNull(memorabilia.Brand);
@@ -109,7 +109,7 @@ public class CanvasTests
     public void GameShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -119,7 +119,7 @@ public class CanvasTests
     public void LevelTypeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Canvas);
 
         //assert
         Assert.Null(memorabilia.LevelType);
@@ -129,7 +129,7 @@ public class CanvasTests
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Canvas);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -140,7 +140,7 @@ public class CanvasTests
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetPerson([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -152,7 +152,7 @@ public class CanvasTests
     public void SizeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemSize(Constant.Size.None);
+        Domain.Entities.Memorabilia memorabilia = SetItemSize(Sizes.None);
 
         //assert
         Assert.NotNull(memorabilia.Size);
@@ -162,7 +162,7 @@ public class CanvasTests
     public void SportsShouldNotBeNullAndEmptyWhenNoSportsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Canvas);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -173,7 +173,7 @@ public class CanvasTests
     public void SportsShouldNotBeNullAndNotEmptyWhenSportsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetSports([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetSports([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -185,7 +185,7 @@ public class CanvasTests
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Canvas);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Canvas);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -196,7 +196,7 @@ public class CanvasTests
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange
-        Entity.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Teams);

@@ -25,7 +25,7 @@ public class LeaguePresident : Entity
 
     public int SportLeagueLevelId { get; private set; }
 
-    public string SportLeagueLevelName => Constants.SportLeagueLevel.Find(SportLeagueLevelId)?.Name;
+    public string SportLeagueLevelName => Constants.SportLeagueLevels.Find(SportLeagueLevelId)?.Name;
 
     public void Set(int? beginYear, int? endYear)
     {

@@ -12,11 +12,11 @@ public class ItemTypeLevel : Entity
 
     public int ItemTypeId { get; private set; }
 
-    public string ItemTypeName => Constants.ItemType.Find(ItemTypeId)?.Name;
+    public string ItemTypeName => ItemTypes.Find(ItemTypeId)?.Name;
 
     public int LevelTypeId { get; private set; }
 
-    public string LevelTypeName => Constants.LevelType.Find(LevelTypeId)?.Name;
+    public string LevelTypeName => LevelTypes.Find(LevelTypeId)?.Name;
 
     public void Set(int levelTypeId)
     {

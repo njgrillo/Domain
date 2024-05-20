@@ -2,14 +2,14 @@
 
 public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
 {
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBookplate(personId: null);
     }
 
-    public Entity.Memorabilia SetPerson(int personId)
+    public Domain.Entities.Memorabilia SetPerson(int personId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         memorabilia.SetBookplate(personId);
 
@@ -20,7 +20,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void BrandShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bookplate);
 
         //assert
         Assert.Null(memorabilia.Brand);
@@ -30,7 +30,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void GameShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -40,7 +40,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void LevelTypeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         //assert
         Assert.Null(memorabilia.LevelType);
@@ -50,7 +50,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bookplate);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -61,7 +61,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson(GetRandomNumber());  
+        Domain.Entities.Memorabilia memorabilia = SetPerson(GetRandomNumber());  
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -73,7 +73,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void SizeShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         //assert
         Assert.Null(memorabilia.Size);
@@ -83,7 +83,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void SportsShouldNotBeNullAndEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -94,7 +94,7 @@ public class BookplateTests : MemorabiliaItemTests, IWithSinglePerson
     public void TeamsShouldNotBeNullAndEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bookplate);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bookplate);
 
         //assert
         Assert.NotNull(memorabilia.Teams);

@@ -18,11 +18,11 @@ public class SportLeagueLevel : Entity
 
     public int LevelTypeId { get; set; }
 
-    public string LevelTypeName => Constants.LevelType.Find(LevelTypeId)?.Name;
+    public string LevelTypeName => LevelTypes.Find(LevelTypeId)?.Name;
 
     public int SportId { get; set; }
 
-    public string SportName => Constants.Sport.Find(SportId)?.Name;
+    public string SportName => Constants.Sports.Find(SportId)?.Name;
 
     public void Set(int sportId, int levelTypeId, string name, string abbreviation)
     {

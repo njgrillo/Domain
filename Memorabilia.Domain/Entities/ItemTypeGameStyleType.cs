@@ -12,11 +12,11 @@ public class ItemTypeGameStyleType : Entity
 
     public int GameStyleTypeId { get; private set; }
 
-    public string GameStyleTypeName => Constants.GameStyleType.Find(GameStyleTypeId)?.Name;
+    public string GameStyleTypeName => GameStyleTypes.Find(GameStyleTypeId)?.Name;
 
     public int ItemTypeId { get; private set; }
 
-    public string ItemTypeName => Constants.ItemType.Find(ItemTypeId)?.Name;
+    public string ItemTypeName => ItemTypes.Find(ItemTypeId)?.Name;
 
     public void Set(int gameStyleTypeId)
     {

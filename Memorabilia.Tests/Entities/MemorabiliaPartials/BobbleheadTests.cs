@@ -3,7 +3,7 @@
 public class BobbleheadTests 
     : MemorabiliaItemTests, IWithLevel, IWithSinglePerson, IWithSingleSport, IWithSingleTeam, IWithSize
 {
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: DefaultLevelTypeId,
@@ -14,9 +14,9 @@ public class BobbleheadTests
                                   year: null);
     }
 
-    public Entity.Memorabilia SetItemLevel(Constant.LevelType levelType)
+    public Domain.Entities.Memorabilia SetItemLevel(LevelTypes levelType)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bobble);
 
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: levelType.Id,
@@ -29,9 +29,9 @@ public class BobbleheadTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemSize(Constant.Size size)
+    public Domain.Entities.Memorabilia SetItemSize(Sizes size)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bobble);
 
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: DefaultLevelTypeId,
@@ -44,9 +44,9 @@ public class BobbleheadTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetPerson(int personId)
+    public Domain.Entities.Memorabilia SetPerson(int personId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bobble);
 
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: DefaultLevelTypeId,
@@ -59,9 +59,9 @@ public class BobbleheadTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetSport(int sportId)
+    public Domain.Entities.Memorabilia SetSport(int sportId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bobble);
 
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: DefaultLevelTypeId,
@@ -74,9 +74,9 @@ public class BobbleheadTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeam(int teamId)
+    public Domain.Entities.Memorabilia SetTeam(int teamId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Bobble);
 
         memorabilia.SetBobblehead(hasBox: false,
                                   levelTypeId: DefaultLevelTypeId,
@@ -93,7 +93,7 @@ public class BobbleheadTests
     public void BrandShouldBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bobble);
 
         //assert
         Assert.Null(memorabilia.Brand);
@@ -103,7 +103,7 @@ public class BobbleheadTests
     public void BobbleheadShouldNotBeNull()
     {
         //arrange
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bobble);
 
         //assert
         Assert.NotNull(memorabilia.Bobblehead);
@@ -113,7 +113,7 @@ public class BobbleheadTests
     public void LevelTypeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemLevel(Constant.LevelType.Professional);
+        Domain.Entities.Memorabilia memorabilia = SetItemLevel(LevelTypes.Professional);
 
         //assert
         Assert.NotNull(memorabilia.LevelType);
@@ -123,7 +123,7 @@ public class BobbleheadTests
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bobble);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -134,7 +134,7 @@ public class BobbleheadTests
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetPerson(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -146,7 +146,7 @@ public class BobbleheadTests
     public void SizeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemSize(Constant.Size.Standard);
+        Domain.Entities.Memorabilia memorabilia = SetItemSize(Sizes.Standard);
 
         //assert
         Assert.NotNull(memorabilia.Size);
@@ -156,7 +156,7 @@ public class BobbleheadTests
     public void SportsShouldNotBeNullAndNotEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetSport(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetSport(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -168,7 +168,7 @@ public class BobbleheadTests
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Bobble);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Bobble);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -179,7 +179,7 @@ public class BobbleheadTests
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetTeam(GetRandomNumber());
+        Domain.Entities.Memorabilia memorabilia = SetTeam(GetRandomNumber());
 
         //assert
         Assert.NotNull(memorabilia.Teams);

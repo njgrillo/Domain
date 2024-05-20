@@ -2,5 +2,5 @@
 
 public interface IWithBrand
 {
-    Entity.Memorabilia SetItemBrand(Constant.Brand brand);
+    Domain.Entities.Memorabilia SetItemBrand(Brands brand);
 }

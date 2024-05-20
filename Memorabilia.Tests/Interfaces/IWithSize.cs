@@ -2,5 +2,5 @@
 
 public interface IWithSize
 {
-    Entity.Memorabilia SetItemSize(Constant.Size size);
+    Domain.Entities.Memorabilia SetItemSize(Sizes size);
 }

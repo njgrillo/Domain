@@ -2,5 +2,5 @@
 
 public interface IWithSingleTeam
 {
-    Entity.Memorabilia SetTeam(int teamId);
+    Domain.Entities.Memorabilia SetTeam(int teamId);
 }

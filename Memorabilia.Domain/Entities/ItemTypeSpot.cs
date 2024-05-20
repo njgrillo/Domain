@@ -12,11 +12,11 @@ public class ItemTypeSpot : Entity
 
     public int ItemTypeId { get; private set; }
 
-    public string ItemTypeName => Constants.ItemType.Find(ItemTypeId)?.Name;
+    public string ItemTypeName => ItemTypes.Find(ItemTypeId)?.Name;
 
     public int SpotId { get; private set; }
 
-    public string SpotName => Constants.ItemType.Find(SpotId)?.Name;
+    public string SpotName => ItemTypes.Find(SpotId)?.Name;
 
     public void Set(int spotId)
     {

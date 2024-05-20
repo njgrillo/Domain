@@ -4,9 +4,9 @@ public class BaseballTests
     : MemorabiliaItemTests, IWithBrand, IWithGameStyle, IWithLevel, IWithMultipleTeams, IWithSinglePerson, IWithSize
 {
     private readonly int _sportId
-        = Constant.Sport.Baseball.Id;
+        = Sports.Baseball.Id;
 
-    protected override void SetDefaultItem(Entity.Memorabilia memorabilia)
+    protected override void SetDefaultItem(Domain.Entities.Memorabilia memorabilia)
     {
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -23,9 +23,9 @@ public class BaseballTests
                                 year: null);
     }
 
-    public Entity.Memorabilia SetItemBrand(Constant.Brand brand)
+    public Domain.Entities.Memorabilia SetItemBrand(Brands brand)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -44,9 +44,9 @@ public class BaseballTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemGameStyle(Constant.GameStyleType gameStyleType)
+    public Domain.Entities.Memorabilia SetItemGameStyle(GameStyleTypes gameStyleType)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -65,9 +65,9 @@ public class BaseballTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemLevel(Constant.LevelType levelType)
+    public Domain.Entities.Memorabilia SetItemLevel(LevelTypes levelType)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -86,9 +86,9 @@ public class BaseballTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetItemSize(Constant.Size size)
+    public Domain.Entities.Memorabilia SetItemSize(Sizes size)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -107,9 +107,9 @@ public class BaseballTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetPerson(int personId)
+    public Domain.Entities.Memorabilia SetPerson(int personId)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -128,9 +128,9 @@ public class BaseballTests
         return memorabilia;
     }
 
-    public Entity.Memorabilia SetTeams(params int[] teamIds)
+    public Domain.Entities.Memorabilia SetTeams(params int[] teamIds)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(ItemTypes.Baseball);
 
         memorabilia.SetBaseball(anniversary: string.Empty,
                                 baseballTypeId: null,
@@ -153,7 +153,7 @@ public class BaseballTests
     public void BrandShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemBrand(Constant.Brand.Spinneybeck);
+        Domain.Entities.Memorabilia memorabilia = SetItemBrand(Brands.Spinneybeck);
 
         //assert
         Assert.NotNull(memorabilia.Brand);
@@ -163,7 +163,7 @@ public class BaseballTests
     public void BaseballShouldBeNullWhenBaseballTypeIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.Null(memorabilia.Baseball);
@@ -173,12 +173,12 @@ public class BaseballTests
     public void BaseballShouldBeNullWhenBrandIsNotRawlingsAndBaseballTypeIsNotNull()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         //act
         memorabilia.SetBaseball(anniversary: string.Empty,
-                                baseballTypeId: Constant.BaseballType.Official.Id,
-                                brandId: Constant.Brand.Spinneybeck.Id,
+                                baseballTypeId: BaseballTypes.Official.Id,
+                                brandId: Brands.Spinneybeck.Id,
                                 commissionerId: GetRandomNumber(),
                                 gameDate: null,
                                 gameStyleTypeId: null,
@@ -198,12 +198,12 @@ public class BaseballTests
     public void BaseballShouldNotBeNullWhenBrandIsRawlingsAndBaseballTypeIsNotNull()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         //act
         memorabilia.SetBaseball(anniversary: string.Empty,
-                                baseballTypeId: Constant.BaseballType.Official.Id,
-                                brandId: Constant.Brand.Rawlings.Id,
+                                baseballTypeId: BaseballTypes.Official.Id,
+                                brandId: Brands.Rawlings.Id,
                                 commissionerId: GetRandomNumber(),
                                 gameDate: null,
                                 gameStyleTypeId: null,
@@ -223,7 +223,7 @@ public class BaseballTests
     public void CommissionerShouldBeNullWhenCommissionIdIsZero()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.Null(memorabilia.Commissioner);
@@ -233,7 +233,7 @@ public class BaseballTests
     public void CommissionerShouldNotBeNullWhenCommissionerIsNotNullAndCommissionerIdIsGreaterThanZero()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         int previousCommissionerId = GetRandomNumber();
 
@@ -277,7 +277,7 @@ public class BaseballTests
     public void CommissionerShouldNotBeNullWhenCommissionerIsNullAndCommissionerIdIsGreaterThanZero()
     {
         //arrange
-        var memorabilia = new Entity.Memorabilia();
+        var memorabilia = new Domain.Entities.Memorabilia();
 
         //act
         memorabilia.SetBaseball(anniversary: string.Empty,
@@ -302,7 +302,7 @@ public class BaseballTests
     public void GameShouldBeNullWhenGameStyleTypeIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.Null(memorabilia.Game);
@@ -312,7 +312,7 @@ public class BaseballTests
     public void GameShouldNotBeNullWhenGameStyleTypeIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemGameStyle(Constant.GameStyleType.GameUsed);
+        Domain.Entities.Memorabilia memorabilia = SetItemGameStyle(GameStyleTypes.GameUsed);
 
         //assert
         Assert.NotNull(memorabilia.Game);
@@ -322,7 +322,7 @@ public class BaseballTests
     public void LevelTypeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemLevel(Constant.LevelType.Professional);
+        Domain.Entities.Memorabilia memorabilia = SetItemLevel(LevelTypes.Professional);
 
         //assert
         Assert.NotNull(memorabilia.LevelType);
@@ -332,7 +332,7 @@ public class BaseballTests
     public void PeopleShouldBeEmptyWhenPersonIdIsNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -343,7 +343,7 @@ public class BaseballTests
     public void PeopleShouldNotBeEmptyWhenPersonIdIsNotNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetPerson(GetRandomNumber());  
+        Domain.Entities.Memorabilia memorabilia = SetPerson(GetRandomNumber());  
 
         //assert
         Assert.NotNull(memorabilia.People);
@@ -355,7 +355,7 @@ public class BaseballTests
     public void SizeShouldNotBeNull()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetItemSize(Constant.Size.Standard);
+        Domain.Entities.Memorabilia memorabilia = SetItemSize(Sizes.Standard);
 
         //assert
         Assert.NotNull(memorabilia.Size);
@@ -365,7 +365,7 @@ public class BaseballTests
     public void SportsShouldNotBeNullAndNotEmpty()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.NotNull(memorabilia.Sports);
@@ -377,7 +377,7 @@ public class BaseballTests
     public void TeamsShouldNotBeNullAndEmptyWhenNoTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetDefaultItem(Constant.ItemType.Baseball);
+        Domain.Entities.Memorabilia memorabilia = SetDefaultItem(ItemTypes.Baseball);
 
         //assert
         Assert.NotNull(memorabilia.Teams);
@@ -388,7 +388,7 @@ public class BaseballTests
     public void TeamsShouldNotBeNullAndNotEmptyWhenTeamsAreSpecified()
     {
         //arrange & act
-        Entity.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
+        Domain.Entities.Memorabilia memorabilia = SetTeams([GetRandomNumber(), GetRandomNumber()]);
 
         //assert
         Assert.NotNull(memorabilia.Teams);

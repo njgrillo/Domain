@@ -3,22 +3,22 @@
 public abstract class MemorabiliaItemTests : MemorabiliaTests
 {
     protected static int DefaultBrandId
-        => Constant.Brand.None.Id;
+        => Brands.None.Id;
 
     protected static int DefaultGameStyleTypeId
-        => Constant.GameStyleType.None.Id;
+        => GameStyleTypes.None.Id;
 
     protected static int DefaultLevelTypeId
-        => Constant.LevelType.None.Id;
+        => LevelTypes.None.Id;
 
     protected static int DefaultSizeId
-        => Constant.Size.None.Id;
+        => Sizes.None.Id;
 
-    protected abstract void SetDefaultItem(Entity.Memorabilia memorabilia);
+    protected abstract void SetDefaultItem(Domain.Entities.Memorabilia memorabilia);
 
-    protected virtual Entity.Memorabilia SetDefaultItem(Constant.ItemType itemType)
+    protected virtual Domain.Entities.Memorabilia SetDefaultItem(ItemTypes itemType)
     {
-        Entity.Memorabilia memorabilia = GetMemorabilia(itemType);
+        Domain.Entities.Memorabilia memorabilia = GetMemorabilia(itemType);
 
         SetDefaultItem(memorabilia);
 

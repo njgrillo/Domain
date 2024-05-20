@@ -1,4 +1,6 @@
-﻿namespace Memorabilia.Domain.Entities;
+﻿using Memorabilia.Domain.Interfaces;
+
+namespace Memorabilia.Domain.Entities;
 
 public class PrivateSigningCustomItemGroup : Entity, IWithName
 {

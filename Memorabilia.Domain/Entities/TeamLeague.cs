@@ -16,7 +16,7 @@ public class TeamLeague : Entity
 
     public int LeagueId { get; set; }
 
-    public string LeagueName => Constants.League.Find(LeagueId)?.Name;
+    public string LeagueName => Constants.Leagues.Find(LeagueId)?.Name;
 
     public int? EndYear { get; set; }
 

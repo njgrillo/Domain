@@ -1,6 +1,4 @@
-﻿using Castle.Components.DictionaryAdapter;
-
-namespace Memorabilia.Domain.Entities;
+﻿namespace Memorabilia.Domain.Entities;
 
 public partial class Memorabilia
 {
@@ -150,8 +148,8 @@ public partial class Memorabilia
                                     new MemorabiliaImage(Id,
                                                          fileName,
                                                          fileName == primaryImageFileName
-                                                             ? Constant.ImageType.Primary.Id
-                                                             : Constant.ImageType.Secondary.Id,
+                                                             ? ImageTypes.Primary.Id
+                                                             : ImageTypes.Secondary.Id,
                                                          DateTime.UtcNow)).ToList();
     }
            
@@ -201,7 +199,8 @@ public partial class Memorabilia
     {
         if (gameStyleTypeId.HasValue)
         {
-            if (ItemType.Id == Constant.ItemType.Jersey.Id && Jersey.JerseyQualityTypeId != Constant.JerseyQualityType.Authentic.Id)
+            if (ItemType.Id == ItemTypes.Jersey.Id && 
+                Jersey.JerseyQualityTypeId != JerseyQualityTypes.Authentic.Id)
                 return;
 
             if (Game == null)

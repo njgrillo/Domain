@@ -13,7 +13,7 @@ public class InternationalHallOfFame : Entity
 
     public int? InductionYear { get; private set; }
 
-    public Constants.InternationalHallOfFameType InternationalHallOfFameType => Constants.InternationalHallOfFameType.Find(InternationalHallOfFameTypeId);   
+    public Constants.InternationalHallOfFameTypes InternationalHallOfFameType => Constants.InternationalHallOfFameTypes.Find(InternationalHallOfFameTypeId);   
 
     public int InternationalHallOfFameTypeId { get; private set; }
 

@@ -6,17 +6,17 @@ public class SearchCriteria
 
     public DateTime? AcquiredDateEnd { get; set; }
 
-    public IEnumerable<int> AcquisitionTypeIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> AcquisitionTypeIds { get; set; }
+        = [];
 
-    public Constant.AutographFilter AutographFilter { get; set; }
-        = Constant.AutographFilter.None;
+    public AutographFilters AutographFilter { get; set; }
+        = AutographFilters.None;
 
     public string AutographFilterName
         => AutographFilter.Name;
 
-    public IEnumerable<int> ConditionIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> ConditionIds { get; set; }
+        = [];
 
     public decimal? CostHigh { get; set; }
 
@@ -26,11 +26,11 @@ public class SearchCriteria
 
     public decimal? EstimatedValueLow { get; set; }
 
-    public IEnumerable<int> FranchiseIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> FranchiseIds { get; set; }
+        = [];
 
-    public Constant.ImageFilter ImageFilter { get; set; } 
-        = Constant.ImageFilter.None;
+    public ImageFilters ImageFilter { get; set; } 
+        = ImageFilters.None;
 
     public string ImageFilterName 
         => ImageFilter.Name;
@@ -43,14 +43,14 @@ public class SearchCriteria
                  .Distinct()
                  .ToArray();
 
-    public IEnumerable<int> PurchaseTypeIds { get; set; } 
-        = Enumerable.Empty<int>();    
+    public IEnumerable<int> PurchaseTypeIds { get; set; }
+        = [];
 
-    public IEnumerable<int> SportIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> SportIds { get; set; }
+        = [];
 
-    public IEnumerable<int> SportLeagueLevelIds { get; set; } 
-        = Enumerable.Empty<int>();
+    public IEnumerable<int> SportLeagueLevelIds { get; set; }
+        = [];
 
     public int[] TeamIds
         => Teams.Select(team => team.Id)

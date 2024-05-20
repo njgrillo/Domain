@@ -16,7 +16,7 @@ public class Division : Entity
 
     public int? ConferenceId { get; set; }
 
-    public string ConferenceName => Constants.Conference.Find(ConferenceId ?? 0)?.Name;
+    public string ConferenceName => Conferences.Find(ConferenceId ?? 0)?.Name;
 
     public int? LeagueId { get; set; }
 

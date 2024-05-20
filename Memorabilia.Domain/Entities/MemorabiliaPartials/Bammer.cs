@@ -25,7 +25,7 @@ public partial class Memorabilia
     {
         if (bammerTypeId.HasValue)
         {
-            if (Brand.BrandId != Constant.Brand.Salvino.Id)
+            if (Brand.BrandId != Brands.Salvino.Id)
                 return;
 
             if (Bammer == null)

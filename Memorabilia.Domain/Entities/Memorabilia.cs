@@ -31,8 +31,8 @@ public partial class Memorabilia : Entity
 
     public virtual MemorabiliaCommissioner Commissioner { get; private set; }
 
-    public Constant.Condition Condition 
-        => Constant.Condition.Find(ConditionId ?? 0);
+    public Conditions Condition 
+        => Conditions.Find(ConditionId ?? 0);
 
     public int? ConditionId { get; private set; }
 
@@ -64,8 +64,8 @@ public partial class Memorabilia : Entity
     public virtual List<MemorabiliaImage> Images { get; private set; } 
         = [];
 
-    public Constant.ItemType ItemType 
-        => Constant.ItemType.Find(ItemTypeId);
+    public ItemTypes ItemType 
+        => ItemTypes.Find(ItemTypeId);
 
     public int ItemTypeId { get; private set; }
 
